@@ -29,3 +29,5 @@ To make the AI feel like a real futuristic system through design and interaction
 ---
 
 This is Version 8.
+----------------------------------------------------
+Note : If you do not know how to run this Then Clone the repository And see the Installation Guide.txt file for more info.
