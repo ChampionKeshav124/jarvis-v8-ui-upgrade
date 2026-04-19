@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JARVIS V8 [TITAN PRIME]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Inline chromatic effect for text that feels high-end */
+    .chromatic-text {
+      text-shadow: 
+        2px 0 0 rgba(255,0,0,0.2),
+        -2px 0 0 rgba(0,255,255,0.2);
+      animation: chromatic-glitch 5s infinite alternate-reverse;
+    }
+    @keyframes chromatic-glitch {
+      0% { text-shadow: 1px 0 0 rgba(255,0,0,0.1), -1px 0 0 rgba(0,255,255,0.1); }
+      100% { text-shadow: -1px 0 0 rgba(255,0,0,0.1), 1px 0 0 rgba(0,255,255,0.1); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HOLOGRAPHIC ATMOSPHERE ═══ -->
+<div class="scanline-overlay"></div>
+<div class="holographic-noise"></div>
+<div class="hex-grid-overlay"></div>
+<div class="hologram-flicker-layer"></div>
+<div class="cinematic-vignette"></div>
+<div class="diagonal-flare"></div>
+<canvas id="digitalRain" class="digital-rain-canvas"></canvas>
+
+<!-- ═══ CINEMATIC INTRO OVERLAY ═══ -->
+<div id="introOverlay" class="intro-overlay">
+  <div class="intro-dot"></div>
+  <div class="intro-text-layer">
+    <p id="introStatusText">SYSTEM... OFFLINE</p>
+    <div id="introProgressBar" class="intro-progress"></div>
+  </div>
+</div>
+
+<!-- ═══ TOP STATUS BAR ═══ -->
+<header class="v8-status-bar">
+  <div class="status-bar__left">
+    <span class="system-id">JARVIS V8</span>
+    <span class="bracket">[</span>
+    <span id="statusIndicator">INITIALIZING</span>
+    <span class="bracket">]</span>
+  </div>
+  <div class="status-bar__center">
+    <span class="location-tag">NODE.01 // BYTEFORGE // TITAN_PRIME</span>
+  </div>
+  <div class="status-bar__right">
+    <span class="clock-display" id="clockDisplay">00:00:00</span>
+    <div class="window-controls">
+      <button class="win-btn" id="btnMinimize" title="Minimize">─</button>
+      <button class="win-btn" id="btnMaximize" title="Maximize">▢</button>
+      <button class="win-btn" id="btnFullscreen" title="Toggle Fullscreen">⛶</button>
+      <button class="win-btn win-btn--close" id="btnClose" title="Close">✕</button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ 3D SCENE WRAPPER ═══ -->
+<div class="v8-scene-wrapper" id="sceneWrapper">
+  <main class="v8-hud-grid" id="hudGrid">
+
+  <!-- LEFT: SYSTEM LOGS + CHAT HISTORY -->
+  <aside class="panel panel--left">
+    <div class="panel-header">
+      <span class="panel-icon">▤</span>
+      <span>SYSTEM_LOGS // NEURAL_MEMORY</span>
+    </div>
+    <div class="log-stream" id="logStream">
+      <p>> JARVIS V8 :: TITAN PRIME</p>
+      <p>> COPYRIGHT BYTEFORGE SYSTEMS</p>
+      <p>> NEURAL MEMORY CORE: ACTIVE</p>
+      <p>> ENCRYPTION: AES-256 ENABLED</p>
+    </div>
+    <div class="chat-history" id="responsePanel"></div>
+  </aside>
+
+  <!-- CENTER: ARC REACTOR CORE -->
+  <section class="panel--center">
+    <div class="reactor-container">
+      <div id="reactorRings" class="reactor-rings">
+
+        <!-- TITAN PRIME: Multi-layer concentric SVG gimbals -->
+        <!-- Layer 1: Outermost slow ring -->
+        <svg class="gimbal-overlay" viewBox="0 0 500 500" style="width:160%;height:160%;opacity:0.55;">
+          <circle class="ring-track" cx="250" cy="250" r="245" />
+          <circle class="ring-track" cx="250" cy="250" r="220" />
+          <circle class="ring-track" cx="250" cy="250" r="195" />
+          <!-- Tick marks around outer ring -->
+          <g stroke="rgba(0,240,255,0.3)" stroke-width="1">
+            <line x1="250" y1="5" x2="250" y2="22" transform="rotate(0 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="15" transform="rotate(30 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="15" transform="rotate(60 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="22" transform="rotate(90 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="15" transform="rotate(120 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="15" transform="rotate(150 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="22" transform="rotate(180 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="15" transform="rotate(210 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="15" transform="rotate(240 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="22" transform="rotate(270 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="15" transform="rotate(300 250 250)" />
+            <line x1="250" y1="5" x2="250" y2="15" transform="rotate(330 250 250)" />
+          </g>
+          <!-- Orbital arc segments -->
+          <circle class="ring-segment s1" cx="250" cy="250" r="235" stroke-dasharray="310 520" />
+          <circle class="ring-segment s2" cx="250" cy="250" r="208" stroke-dasharray="150 360" />
+          <circle class="ring-segment s3" cx="250" cy="250" r="182" stroke-dasharray="90 240" />
+          <!-- Cross-hairs -->
+          <line class="gimbal-cross" x1="250" y1="0" x2="250" y2="500" />
+          <line class="gimbal-cross" x1="0" y1="250" x2="500" y2="250" />
+          <!-- Diagonal cross-hairs at 45° -->
+          <line class="gimbal-cross" x1="0" y1="0" x2="500" y2="500" stroke-dasharray="3 24" opacity="0.12" />
+          <line class="gimbal-cross" x1="500" y1="0" x2="0" y2="500" stroke-dasharray="3 24" opacity="0.12" />
+        </svg>
+
+        <!-- Physical rotating rings -->
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <div class="ring r4"></div>
+        <div class="ring r5"></div>
+
+        <!-- Voice waveform canvas -->
+        <canvas id="voiceWaveform" class="voice-waveform"></canvas>
+      </div>
+
+      <!-- ARC REACTOR CORE -->
+      <div class="reactor-core">
+        <div class="core-glow"></div>
+        <div class="core-text">V8</div>
+      </div>
+
+      <p id="systemStatusText" class="system-status-text">NEURAL LINK: STANDBY</p>
+    </div>
+  </section>
+
+  <!-- RIGHT: REAL-TIME ANALYTICS -->
+  <aside class="panel panel--right">
+    <div class="panel-header">
+      <span class="panel-icon">◈</span>
+      <span>REALTIME_ANALYTICS</span>
+    </div>
+
+    <div class="analytics-block">
+      <div class="stat-header">CPU_LOAD</div>
+      <canvas id="cpuGraph" class="stat-graph"></canvas>
+      <div class="stat-footer">
+        <span id="cpuValue">0%</span>
+        <span>:: CORE ACTIVE</span>
+      </div>
+    </div>
+
+    <div class="analytics-block">
+      <div class="stat-header">MEM_SYNC</div>
+      <canvas id="ramGraph" class="stat-graph"></canvas>
+      <div class="stat-footer">
+        <span id="ramValue">0%</span>
+        <span>:: SYNCED</span>
+      </div>
+    </div>
+
+    <div class="analytics-block">
+      <div class="stat-header">HOLOGRAPHIC_DEPTH</div>
+      <div class="depth-bars">
+        <div class="depth-bar"><div class="depth-fill" style="width:82%"></div></div>
+        <div class="depth-bar"><div class="depth-fill" style="width:47%;animation-delay:0.5s"></div></div>
+        <div class="depth-bar"><div class="depth-fill" style="width:91%;animation-delay:1s"></div></div>
+        <div class="depth-bar"><div class="depth-fill" style="width:33%;animation-delay:1.5s"></div></div>
+      </div>
+    </div>
+
+    <div class="analytics-block">
+      <div class="stat-header">NEURAL_UPLINK_STATUS</div>
+      <div class="depth-bars">
+        <div class="depth-bar"><div class="depth-fill" style="width:99%;animation-delay:0.2s"></div></div>
+        <div class="depth-bar"><div class="depth-fill" style="width:76%;animation-delay:0.7s"></div></div>
+        <div class="depth-bar"><div class="depth-fill" style="width:88%;animation-delay:1.2s"></div></div>
+      </div>
+    </div>
+  </aside>
+
+  </main>
+</div>
+
+<!-- ═══ BOTTOM COMMAND INPUT ═══ -->
+<footer class="v8-input-bar">
+  <div class="input-container">
+    <span class="prompt-arrow">▸</span>
+    <input
+      type="text"
+      id="commandInput"
+      class="v8-input"
+      placeholder="AWAITING NEURAL COMMAND..."
+      autocomplete="off"
+    />
+    <div class="input-controls">
+      <button id="btnVoiceToggle" class="icon-toggle" title="Toggle AI Voice">🔊</button>
+      <button id="sendBtn" class="v8-btn-execute">EXECUTE</button>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ ACTIVATION SPLASH ═══ -->
+<div id="activationOverlay" class="activation-overlay">
+  <div class="activation-card">
+    <div class="activation-rings">
+      <div class="act-ring ar1"></div>
+      <div class="act-ring ar2"></div>
+      <div class="act-ring ar3"></div>
+    </div>
+    <h1 class="glitch-text" data-text="JARVIS V8">JARVIS V8</h1>
+    <p>ESTABLISH NEURAL LINK TO INITIALIZE</p>
+    <button id="btnActivateSystem" class="v8-btn-start">ACTIVATE TITAN PROTOCOL</button>
+  </div>
+</div>
+
+<script src="app.js?v=titan.prime.1"></script>
+</body>
+</html>
