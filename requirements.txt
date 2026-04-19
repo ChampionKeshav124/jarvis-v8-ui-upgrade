@@ -1,0 +1,20 @@
+# ═══════════════════════════════════════════════════════
+#  JARVIS V8 — Core Python Dependencies
+#  Optimized Manifest // Titan Prime Engine
+# ═══════════════════════════════════════════════════════
+
+# Neural Link & API
+google-genai>=1.0.0
+requests>=2.31.0
+
+# System Monitoring & Control
+psutil>=6.1.0
+pywin32>=311
+pyautogui>=0.9.54
+uiautomation>=2.0.29
+pyperclip>=1.9.0
+
+# Vision & Image Processing
+Pillow>=11.0.0
+numpy>=2.0.0
+opencv-python>=4.10.0

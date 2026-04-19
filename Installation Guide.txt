@@ -1,0 +1,73 @@
+═══════════════════════════════════════════════════════════════
+  JARVIS V7 — TITAN EDITION : INSTALLATION PROTOCOL
+  BYTEFORGE SYSTEM
+═══════════════════════════════════════════════════════════════
+
+Follow these steps to initialize the neural link and establish 
+a stable connection for JARVIS V7.
+
+─────────────────────────────────────────────────────────────
+ 1. PREREQUISITES — SYSTEM CORE
+─────────────────────────────────────────────────────────────
+
+  • Python Engine: v3.9 or higher installed.
+  • Node.js Engine: v18.0 or higher installed.
+  • Development IDE: VS Code recommended.
+
+─────────────────────────────────────────────────────────────
+ 2. BACKEND INITIALIZATION (Python)
+─────────────────────────────────────────────────────────────
+
+  Initialize the sensory and logic modules:
+  
+  1. Open a terminal in the project directory.
+  2. Execute the dependency deployment:
+     > pip install -r requirements.txt
+     
+  This installs critical components:
+  - google-genai (Titan Optics & Logic)
+  - pywin32 (System Automation)
+  - ElevenLabs (Phonetic Output)
+  - OpenCV/Pillow (Visual Sensory)
+
+─────────────────────────────────────────────────────────────
+ 3. FRONTEND HUD DEPLOYMENT (Electron)
+─────────────────────────────────────────────────────────────
+
+  Establish the visual interface Framework:
+  
+  1. Initialize Node modules:
+     > npm install
+     
+  This installs Electron and associated renderer dependencies.
+
+─────────────────────────────────────────────────────────────
+ 4. NEURAL LINK CONFIGURATION (API Keys)
+─────────────────────────────────────────────────────────────
+
+  JARVIS requires valid credentials to connect to external logic:
+
+  1. Open 'config.py' in your editor.
+  2. Input your Credentials:
+     - GEMINI_API_KEY: Found at makersuite.google.com
+     - ELEVENLABS_API_KEY: Found at elevenlabs.io
+     - ELEVENLABS_VOICE_ID: Recommended choice is 'Callum'
+  3. Customize WAKE_WORDS as desired.
+
+─────────────────────────────────────────────────────────────
+ 5. SYSTEM LAUNCH
+─────────────────────────────────────────────────────────────
+
+  Once the link is authenticated, initiate the startup sequence:
+
+  1. Execute the launch command:
+     > npm run dev
+
+  2. Manual Activation:
+     Click 'ACTIVATE SYSTEM' on the HUD to grant microphone 
+     permissions and stabilize the neural link.
+
+─────────────────────────────────────────────────────────────
+  SYSTEM STATUS: STANDING BY
+  BYTEFORGE SYSTEM — ESTABLISHED 2026
+═══════════════════════════════════════════════════════════════
